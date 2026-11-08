@@ -181,6 +181,10 @@ summary > :not(.thumb){grid-column:1}
 #infopage .info{padding-block:20px 48px}
 .info a{color:var(--ink);text-underline-offset:2px}
 main > .wrap:last-child{padding-bottom:48px}
+:root{--tiles:grayscale(1) brightness(1.06) contrast(.86)}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){--tiles:invert(1) grayscale(1) brightness(.8) contrast(1.15)}}
+:root[data-theme="dark"]{--tiles:invert(1) grayscale(1) brightness(.8) contrast(1.15)}
+.leaflet-tile-pane{filter:var(--tiles)}
 
 </style>
 </head>

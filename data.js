@@ -67,6 +67,10 @@ const DAYS = [
      [
       "Herzog & de Meuron",
       "https://www.herzogdemeuron.com/projects/305-56-leonard-street/"
+     ],
+     [
+      "WSP",
+      "https://www.wsp.com/en-us/projects/56-leonard"
      ]
     ],
     "photo": {
@@ -99,6 +103,10 @@ const DAYS = [
      [
       "9/11 Memorial & Museum",
       "https://www.911memorial.org/sites/default/files/inline-files/911%20Memorial%20&%20Museum%20Institutional%20Backgrounder.pdf"
+     ],
+     [
+      "SOM",
+      "https://www.som.com/news/skidmore-owings-merrills-one-world-trade-center-opens-today/"
      ]
     ],
     "photo": {
@@ -234,6 +242,10 @@ const DAYS = [
      [
       "Il tuo Notion (USA Projects)",
       "https://app.notion.com/p/a3cf2e62d17d82c0994381a204b9e2d6"
+     ],
+     [
+      "WSP",
+      "https://www.wsp.com/en-gl/projects/8-spruce-street"
      ]
     ],
     "photo": {
@@ -374,6 +386,10 @@ const DAYS = [
      [
       "CTBUH Skyscraper Center",
       "https://www.skyscrapercenter.com/building/the-spiral/23571"
+     ],
+     [
+      "BIG",
+      "https://big.dk/projects/the-spiral-4456"
      ]
     ],
     "photo": {
@@ -431,6 +447,10 @@ const DAYS = [
      [
       "Diller Scofidio + Renfro",
       "https://dsrny.com/project/the-shed"
+     ],
+     [
+      "Thornton Tomasetti",
+      "https://www.thorntontomasetti.com/project/shed"
      ]
     ],
     "photo": {
@@ -746,6 +766,10 @@ const DAYS = [
      [
       "Il tuo Notion (USA Projects)",
       "https://app.notion.com/p/a3cf2e62d17d82c0994381a204b9e2d6"
+     ],
+     [
+      "WSP",
+      "https://www.wsp.com/en-gb/projects/53w53"
      ]
     ],
     "photo": {
@@ -818,6 +842,10 @@ const DAYS = [
      [
       "CTBUH Skyscraper Center",
       "https://www.skyscrapercenter.com/building/432-park-avenue/13227"
+     ],
+     [
+      "Rafael Viñoly Architects",
+      "https://www.vinoly.com/works/432-park-avenue/"
      ]
     ],
     "photo": {
@@ -882,6 +910,10 @@ const DAYS = [
      [
       "KPF",
       "https://www.kpf.com/story/one-vanderbilt"
+     ],
+     [
+      "KPF, progetto",
+      "https://www.kpf.com/project/one-vanderbilt"
      ]
     ],
     "photo": {
@@ -1136,6 +1168,10 @@ const DAYS = [
      [
       "CTBUH Skyscraper Center",
       "https://www.skyscrapercenter.com/building/the-new-york-times-building/423"
+     ],
+     [
+      "Renzo Piano Building Workshop",
+      "https://www.rpbw.com/project/the-new-york-times-building"
      ]
     ],
     "photo": {
@@ -1161,6 +1197,10 @@ const DAYS = [
      [
       "SOM",
       "https://www.som.com/projects/moynihan-train-hall/"
+     ],
+     [
+      "SOM, inaugurazione",
+      "https://www.som.com/news/moynihan-train-hall-monumental-civic-project-that-restores-grandeur-of-train-travel-in-new-york-opens-january-1/"
      ]
     ],
     "photo": {
@@ -1193,6 +1233,10 @@ const DAYS = [
      [
       "New York YIMBY (orari)",
       "https://newyorkyimby.com/2026/03/new-museum-opens-with-new-seven-story-expansion-in-bowery-manhattan.html"
+     ],
+     [
+      "Dezeen",
+      "https://www.dezeen.com/2026/03/18/oma-new-museum-new-york-extension/"
      ]
     ],
     "photo": {

@@ -1,5 +1,5 @@
 /* Service worker della guida: salva pagina, foto e mappa per l'uso senza rete */
-const VERSION = "20261108-1659";
+const VERSION = "20261108-1757";
 const CORE_CACHE = "nyc26-core-" + VERSION;
 const EXTRA_CACHE = "nyc26-extra";       // foto e tile viste: condivise tra le versioni
 const CORE = ["./", "index.html", "app.js", "data.js", "boro.js", "leaflet.js", "leaflet.css", "archivo.woff2", "manifest.webmanifest", "icon-192.png", "icon-512.png", "apple-touch-icon.png"];
