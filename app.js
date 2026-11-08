@@ -130,6 +130,7 @@ function select(id, opts = {}){
           ${credits ? `<dl class="credits">${credits}</dl>` : ""}
           <p>${esc(s.desc)}</p>
           ${s.tech ? `<p class="tech">${esc(s.tech)}</p>` : ""}
+          ${s.facts && s.facts.length ? `<ul class="facts">${s.facts.map(f => `<li>${esc(f)}</li>`).join("")}</ul>` : ""}
           ${s.tip ? `<p class="tip">${esc(s.tip)}</p>` : ""}
           ${srcs ? `<p class="src">Fonti: ${srcs}</p>` : ""}
           <div class="actions">
