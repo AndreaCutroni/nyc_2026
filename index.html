@@ -1,0 +1,270 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>New York, 15–19 novembre</title>
+<meta name="description" content="Itinerario di architettura a New York, 15–19 novembre 2026: tappe, mappa, spostamenti e fonti.">
+<meta name="theme-color" content="#000000">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="NYC 26">
+<meta name="robots" content="noindex">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="icon" href="icon-192.png" type="image/png">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="preload" href="archivo.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="leaflet.css">
+<style>
+@font-face{font-family:"Archivo";font-style:normal;font-display:swap;font-weight:100 900;font-stretch:62% 125%;src:url(archivo.woff2) format("woff2")}
+html{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+body{margin:0}
+img{max-width:100%}
+[hidden]{display:none!important}
+/* Layout: segnaletica della metro di New York. Ogni giorno è una linea con il suo colore; le tappe sono fermate su un binario verticale, gli spostamenti sono "cambi" con i bollini delle linee. */
+:root{
+  --bg:#f2f3f0; --surface:#ffffff; --ink:#15171a; --muted:#5a6067; --rule:#d7dad5;
+  --sign:#000000; --sign-ink:#ffffff;
+  --land:#e4e6e0; --water:#c6d3da; --coast:#aeb6b2; --maplabel:#5f6764;
+  --done:#8a9096;
+  --day:#EE352E; --day-ink:#ffffff;
+  --font:"Archivo","Helvetica Neue",Helvetica,Arial,system-ui,sans-serif;
+  --fs-xs:.75rem; --fs-s:.875rem; --fs-m:1rem; --fs-l:1.25rem; --fs-xl:1.625rem;
+}
+@media (prefers-color-scheme: dark){ :root:not([data-theme="light"]){
+  --bg:#17191c; --surface:#202328; --ink:#eceee9; --muted:#a2a8ad; --rule:#33373c;
+  --sign:#000000; --sign-ink:#ffffff;
+  --land:#2a2e33; --water:#121a20; --coast:#41474d; --maplabel:#8e959a; --done:#6e747a;
+  color-scheme:dark }}
+:root[data-theme="dark"]{
+  --bg:#17191c; --surface:#202328; --ink:#eceee9; --muted:#a2a8ad; --rule:#33373c;
+  --sign:#000000; --sign-ink:#ffffff;
+  --land:#2a2e33; --water:#121a20; --coast:#41474d; --maplabel:#8e959a; --done:#6e747a;
+  color-scheme:dark }
+
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--ink);font-family:var(--font);font-size:var(--fs-m);line-height:1.45;-webkit-text-size-adjust:100%}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:1001;background:var(--sign)}
+.wrap{max-width:720px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+button{font:inherit;color:inherit}
+:focus-visible{outline:3px solid var(--day);outline-offset:2px}
+
+/* Barra dei giorni */
+.top{position:sticky;top:env(safe-area-inset-top,0px);z-index:1000;background:var(--sign);color:var(--sign-ink)}
+.top .wrap{display:flex;gap:6px;padding-block:10px;align-items:center}
+.top .city{font-weight:700;font-stretch:85%;font-size:var(--fs-s);margin-right:auto;letter-spacing:.01em;line-height:1.15}
+.top .city span{display:block;font-weight:400;opacity:.7;font-size:var(--fs-xs)}
+.tab{display:flex;flex-direction:column;align-items:center;gap:3px;background:none;border:0;padding:2px 4px;cursor:pointer;min-width:44px}
+.tab .b{width:34px;height:34px;border-radius:50%;display:grid;place-items:center;font-weight:800;font-size:15px;background:var(--c);color:var(--ci);opacity:.55;transition:opacity .15s,transform .15s}
+.tab small{font-size:11px;opacity:.6}
+.tab[aria-pressed="true"] .b{opacity:1;transform:scale(1.08);box-shadow:0 0 0 2px var(--sign),0 0 0 4px var(--sign-ink)}
+.tab[aria-pressed="true"] small{opacity:1;font-weight:700}
+
+/* Cartello della giornata */
+.sign{background:var(--sign);color:var(--sign-ink);border-top:1px solid #3a3a3a}
+.sign .wrap{padding-block:14px 18px;display:grid;gap:10px}
+.sign .rule{height:3px;background:var(--sign-ink);opacity:.9;width:100%}
+.sign h1{margin:0;font-size:var(--fs-xl);font-weight:700;font-stretch:88%;line-height:1.1;text-wrap:balance;letter-spacing:-.005em}
+.sign .when{display:flex;align-items:center;gap:10px}
+.sign .when .b{width:40px;height:40px;border-radius:50%;background:var(--day);color:var(--day-ink);display:grid;place-items:center;font-weight:800;font-size:18px;flex:none}
+.sign .when p{margin:0;font-size:var(--fs-s);opacity:.85}
+.facts{display:flex;flex-wrap:wrap;gap:6px 16px;font-size:var(--fs-s);opacity:.9}
+.facts b{font-weight:700}
+.plan{margin:0;font-size:var(--fs-s);opacity:.8;max-width:62ch}
+
+/* Mappa */
+.mapbox{padding-block:14px 6px}
+#map{height:clamp(260px,44vh,480px);border-radius:6px;background:var(--water);border:1px solid var(--rule);z-index:1}
+.legend{display:flex;flex-wrap:wrap;gap:6px 14px;font-size:var(--fs-xs);color:var(--muted);padding-top:8px}
+.legend i{display:inline-block;vertical-align:-2px;margin-right:5px}
+.mapnote{font-size:var(--fs-xs);color:var(--muted);margin:2px 0 0}
+.land{fill:var(--land);fill-opacity:1;stroke:var(--coast);stroke-width:1}
+.route{stroke:var(--day);stroke-width:4;stroke-linecap:round;stroke-linejoin:round;fill:none;opacity:.9}
+.route-metro{stroke:var(--muted);stroke-width:2.5;stroke-dasharray:2 7;stroke-linecap:round;fill:none;opacity:.9}
+.maplabel{color:var(--maplabel);font:600 11px/1 var(--font);font-stretch:85%;white-space:nowrap;transform:translate(-50%,-50%);pointer-events:none;text-shadow:0 0 3px var(--land),0 0 3px var(--land)}
+.leaflet-container{font-family:var(--font);background:var(--water)}
+.leaflet-bar a{background:var(--surface);color:var(--ink);border-color:var(--rule)}
+
+/* Pin */
+.pin{display:grid;place-items:center;border-radius:50%;font:800 12px/1 var(--font);width:26px;height:26px;transform:translate(-50%,-50%);box-shadow:0 1px 3px rgba(0,0,0,.35)}
+.pin.edificio{background:var(--day);color:var(--day-ink);border:2px solid var(--surface)}
+.pin.extra,.pin.tramonto{background:var(--surface);color:var(--ink);border:3px solid var(--day)}
+.pin.pasto{width:20px;height:20px;font-size:10px;background:var(--surface);color:var(--muted);border:2px solid var(--muted)}
+.pin.tramonto{border-style:double;border-width:5px}
+.pin.base{border-radius:3px;background:var(--sign);color:var(--sign-ink);border:2px solid var(--surface)}
+.pin.active{outline:3px solid var(--ink);outline-offset:2px;z-index:999}
+.pin.done{opacity:.45}
+
+/* Lista delle fermate */
+.stops{list-style:none;margin:0;padding:12px 0 8px}
+.stop,.leg{display:grid;grid-template-columns:3.1rem 28px minmax(0,1fr);column-gap:10px;position:relative}
+.stop::before,.leg::before{content:"";position:absolute;left:calc(3.1rem + 10px + 11px);top:0;bottom:0;width:6px;background:var(--day)}
+.stops > li:first-child::before{top:18px}
+.stops > li:last-child::before{bottom:calc(100% - 18px)}
+.leg.metro::before{background:repeating-linear-gradient(var(--day) 0 6px,transparent 6px 11px)}
+.time{grid-column:1;font-weight:700;font-variant-numeric:tabular-nums;font-size:var(--fs-s);padding-top:9px;text-align:right}
+.node{grid-column:2;position:relative;z-index:1;display:flex;justify-content:center;padding-top:7px}
+.node span{width:22px;height:22px;border-radius:50%;background:var(--surface);border:4px solid var(--ink);display:grid;place-items:center;font:800 10px/1 var(--font);color:var(--ink)}
+.stop.edificio .node span{width:26px;height:26px;margin-top:-2px;background:var(--ink);color:var(--bg);border-color:var(--ink)}
+.stop.base .node span{border-radius:3px}
+.stop.pasto .node span{width:16px;height:16px;margin-top:3px;border-width:3px}
+.stop.is-done .node span{background:var(--done);border-color:var(--done);color:var(--bg)}
+.body{grid-column:3;min-width:0;padding-bottom:10px}
+details{border-bottom:1px solid var(--rule)}
+summary{list-style:none;cursor:pointer;padding:6px 0 10px;display:grid;gap:2px}
+summary::-webkit-details-marker{display:none}
+.name{font-weight:700;font-size:var(--fs-m);line-height:1.25;text-wrap:balance}
+.stop.edificio .name{font-size:1.0625rem}
+.stop.is-done .name{color:var(--done);text-decoration:line-through;text-decoration-thickness:1px}
+.meta{font-size:var(--fs-s);color:var(--muted);display:flex;flex-wrap:wrap;gap:0 10px}
+.kind{font-size:var(--fs-xs);font-weight:700;color:var(--muted)}
+.stop.edificio .kind{color:var(--ink)}
+.more{display:grid;gap:10px;padding:0 0 14px;font-size:var(--fs-s);max-width:62ch}
+.more p{margin:0}
+.credits{display:grid;grid-template-columns:auto minmax(0,1fr);gap:2px 12px;margin:0}
+.credits dt{color:var(--muted)}
+.credits dd{margin:0;font-weight:600}
+.tech{background:var(--surface);border-left:4px solid var(--day);padding:8px 10px;border-radius:0 4px 4px 0}
+.tip{color:var(--muted)}
+.actions{display:flex;flex-wrap:wrap;gap:6px;align-items:center}
+.chip{display:inline-flex;align-items:center;gap:5px;min-height:34px;padding:0 11px;border-radius:17px;border:1.5px solid var(--ink);background:none;text-decoration:none;color:var(--ink);font-weight:600;font-size:13px;line-height:1;cursor:pointer}
+.chip.primary{background:var(--ink);color:var(--bg)}
+.chip.check{margin-left:auto;border-color:var(--rule);color:var(--muted)}
+.chip.check svg{width:14px;height:14px}
+.chip.check[aria-pressed="true"]{background:var(--done);border-color:var(--done);color:var(--bg)}
+.src{font-size:var(--fs-xs);color:var(--muted);margin:0;line-height:1.5}
+.src a{color:var(--muted);text-underline-offset:2px}
+.seg{display:inline-flex;border:1.5px solid var(--ink);border-radius:17px;overflow:hidden;margin-top:4px}
+.seg button{border:0;background:none;padding:0 14px;min-height:34px;font-weight:600;font-size:13px;cursor:pointer}
+.seg button[aria-pressed="true"]{background:var(--ink);color:var(--bg)}
+.legtxt{grid-column:3;font-size:var(--fs-s);color:var(--muted);padding:6px 0 12px;display:flex;flex-wrap:wrap;align-items:center;gap:4px 6px}
+.leg .time{font-weight:400;color:var(--muted);font-size:var(--fs-xs)}
+.legtxt b{color:var(--ink);font-weight:700}
+.est{font-size:var(--fs-xs);opacity:.8}
+.line{display:inline-grid;place-items:center;width:20px;height:20px;border-radius:50%;background:var(--c);color:var(--ci);font:800 11px/1 var(--font);vertical-align:-4px}
+
+/* Info */
+.info{padding-block:20px 40px;display:grid;gap:18px}
+.info h2{font-size:var(--fs-l);font-stretch:88%;margin:0 0 6px}
+.info section{border-top:3px solid var(--ink);padding-top:10px}
+.info ul{margin:0;padding-left:1.1rem;display:grid;gap:6px;font-size:var(--fs-s);max-width:62ch}
+.info p{font-size:var(--fs-s);margin:0;max-width:62ch;color:var(--muted)}
+.proto{font-size:var(--fs-xs);color:var(--muted)}
+@media (prefers-reduced-motion: reduce){*{transition:none!important;animation:none!important}}
+
+/* Versione definitiva */
+.locate{width:36px;height:36px;border-radius:4px;border:2px solid rgba(0,0,0,.2);background:var(--surface);color:var(--ink);display:grid;place-items:center;cursor:pointer;padding:0}
+.locate svg{width:20px;height:20px}
+.locate[aria-pressed="true"]{color:#1a73e8}
+.me{fill:#1a73e8;fill-opacity:1;stroke:#ffffff;stroke-width:3}
+.me-acc{fill:#1a73e8;fill-opacity:.12;stroke:#1a73e8;stroke-opacity:.4;stroke-width:1}
+.ph{margin:0;display:grid;gap:4px}
+.ph img{width:100%;aspect-ratio:4/3;object-fit:cover;object-position:50% 35%;border-radius:4px;background:var(--rule);display:block}
+.ph figcaption{font-size:var(--fs-xs);color:var(--muted)}
+.ph figcaption a{color:var(--muted)}
+.ph.ph-off img{display:none}
+.ph.ph-off::before{content:"Foto non disponibile senza rete";font-size:var(--fs-xs);color:var(--muted)}
+summary.has-thumb{grid-template-columns:minmax(0,1fr) 56px;column-gap:10px}
+summary > :not(.thumb){grid-column:1}
+.thumb{grid-column:2;grid-row:1 / span 3;width:56px;height:56px;object-fit:cover;border-radius:4px;background:var(--rule);align-self:start}
+.update{position:fixed;left:0;right:0;bottom:0;z-index:1100;border:0;background:var(--ink);color:var(--bg);font:700 var(--fs-s) var(--font);padding:14px max(16px,env(safe-area-inset-right,0px)) calc(14px + env(safe-area-inset-bottom,0px)) max(16px,env(safe-area-inset-left,0px));cursor:pointer}
+#offline b{color:var(--ink)}
+.citywrap{display:flex;align-items:center;gap:8px;margin-right:auto}
+.top .city{margin-right:0}
+.infobtn{flex:none;width:22px;height:22px;border-radius:50%;border:1.5px solid var(--sign-ink);background:none;color:var(--sign-ink);font:italic 700 13px/1 Georgia,"Times New Roman",serif;cursor:pointer;display:grid;place-items:center;padding:0;position:relative}
+.infobtn::after{content:"";position:absolute;inset:-11px}
+.infobtn[aria-pressed="true"]{background:var(--sign-ink);color:var(--sign)}
+.tab{min-width:40px;padding:2px 2px}
+.infohead{display:grid;gap:12px;justify-items:start}
+.infohead h1{margin:0;font-size:var(--fs-xl);font-stretch:88%}
+#infopage .info{padding-block:20px 48px}
+.info a{color:var(--ink);text-underline-offset:2px}
+main > .wrap:last-child{padding-bottom:48px}
+
+</style>
+</head>
+<body>
+<header class="top">
+  <div class="wrap">
+    <div class="citywrap"><div class="city">New York<span>15–19 novembre</span></div><button type="button" class="infobtn" id="infobtn" aria-label="Informazioni" aria-pressed="false">i</button></div>
+    <nav id="tabs" aria-label="Giorni" style="display:flex;gap:2px"></nav>
+  </div>
+</header>
+
+<div class="sign" id="sign"></div>
+
+<main>
+  <div class="wrap mapbox">
+    <div id="map" role="region" aria-label="Mappa della giornata"></div>
+    <div class="legend">
+      <span><i class="pin edificio" style="position:static;transform:none;width:14px;height:14px;display:inline-block"></i>Edificio</span>
+      <span><i class="pin extra" style="position:static;transform:none;width:14px;height:14px;display:inline-block;border-width:2px"></i>Altra tappa</span>
+      <span><i class="pin pasto" style="position:static;transform:none;width:12px;height:12px;display:inline-block"></i>Pasto</span>
+      <span><i class="pin base" style="position:static;transform:none;width:14px;height:14px;display:inline-block"></i>Hotel</span>
+      <span><i style="width:18px;height:0;border-top:3px dotted var(--muted)"></i>Metro</span>
+    </div>
+    <p class="mapnote" id="mapnote">Senza rete la mappa dettagliata resta disponibile per le zone già visualizzate; altrove vedi lo schema dei quartieri. Il pulsante in alto a destra mostra dove sei.</p>
+  </div>
+  <div class="wrap"><ol class="stops" id="stops"></ol></div>
+</main>
+<div id="infopage" hidden>
+  <div class="wrap info">
+    <div class="infohead"><button type="button" class="chip" id="infoback">Torna all'itinerario</button><h1>Informazioni</h1></div>
+    <section>
+      <h2>In metro</h2>
+      <ul>
+        <li>Si paga con <b>OMNY</b>: appoggia al lettore del tornello una carta contactless, il telefono, l'orologio o una tessera OMNY.</li>
+        <li>Una corsa costa <b>$3</b>. Con lo stesso metodo di pagamento non si spendono più di <b>$35 in 7 giorni</b>: superato il tetto, le corse sono gratis. Ognuno di voi deve usare sempre il proprio metodo di pagamento.</li>
+        <li>Il cambio è gratuito entro due ore dal primo passaggio, con lo stesso metodo di pagamento.</li>
+        <li>Prima di salire controlla se il treno è <b>local</b> o <b>express</b>: gli express saltano molte fermate.</li>
+        <li>Uptown va a nord, Downtown va a sud. In alcune stazioni gli ingressi per le due direzioni sono separati.</li>
+      </ul>
+      <p class="src">Fonti: <a href="https://www.mta.info/guides/airports/jfk/jfk-airport-to-manhattan" target="_blank" rel="noopener">MTA</a>, <a href="https://omny.info/faq/fare-cap" target="_blank" rel="noopener">OMNY, tetto settimanale e cambi</a></p>
+    </section>
+    <section>
+      <h2>Da e per JFK</h2>
+      <ul>
+        <li><b>Metro e AirTrain, $11,75.</b> Dall'hotel: <span class="line" style="--c:#0039A6;--ci:#fff">E</span> dalla fermata World Trade Center in direzione Jamaica Center fino a Sutphin Blvd–Archer Av–JFK Airport. Segui le indicazioni per l'AirTrain e paga i $8,75 al tornello con carta contactless o telefono. All'arrivo si fa lo stesso al contrario: AirTrain fino a Jamaica, poi la <span class="line" style="--c:#0039A6;--ci:#fff">E</span> fino a World Trade Center.</li>
+        <li><b>Treno LIRR e AirTrain, $14-16.</b> Più veloce ma più caro: da Penn Station o Grand Central fino a Jamaica, poi AirTrain.</li>
+        <li><b>Taxi.</b> Tariffa fissa di $70 tra JFK e Manhattan, più pedaggi, mancia e da $2,75 a $8,50 di supplementi.</li>
+        <li>In aeroporto l'AirTrain tra i terminal è gratuito e passa ogni 5-15 minuti.</li>
+        <li><b>Giovedì 19:</b> volo alle 21:00, lasciare l'hotel tra le 15:00 e le 15:30. Chiedi alla reception di tenere i bagagli dopo il check-out.</li>
+      </ul>
+      <p class="src">Fonti: <a href="https://www.mta.info/guides/airports/jfk" target="_blank" rel="noopener">MTA, come arrivare a JFK</a>, <a href="https://www.mta.info/guides/airports/jfk/jfk-airport-to-manhattan" target="_blank" rel="noopener">MTA, da JFK a Manhattan</a>, <a href="https://www.mta.info/maps/subway-line-maps/e-line" target="_blank" rel="noopener">MTA, mappa della linea E</a>, <a href="https://www.jfkairport.com/transportation/airtrain" target="_blank" rel="noopener">JFK, AirTrain</a>, <a href="https://www.jfkairport.com/transportation/taxi-service" target="_blank" rel="noopener">JFK, taxi</a></p>
+    </section>
+    <section>
+      <h2>App per le mappe</h2>
+      <p>I pulsanti «Mappa» e «Percorso» di ogni tappa aprono:</p>
+      <div class="seg" role="group" aria-label="App per le mappe"><button type="button" data-mapapp="google" aria-pressed="true">Google Maps</button><button type="button" data-mapapp="apple" aria-pressed="false">Mappe Apple</button></div>
+    </section>
+    <section>
+      <h2>Fonti</h2>
+      <p>Ogni scheda indica le sue fonti: CTBUH Skyscraper Center per altezze e piani, le pagine di progetto di architetti e ingegneri, i rapporti della NYC Landmarks Preservation Commission e i siti ufficiali di parchi e musei. Architetti e ingegneri sono confrontati anche con il tuo database Notion. Le tappe senza fonti hanno solo indicazioni pratiche. Le foto vengono da Wikimedia Commons: autore e licenza sono sotto ogni immagine. Tramonti: <a href="https://www.calendar-365.com/calendar/2026/November.html" target="_blank" rel="noopener">Calendar-365</a>.</p>
+    </section>
+    <section>
+      <h2>Tempi a piedi</h2>
+      <p>Distanze e minuti a piedi tra le tappe sono calcolati sul percorso pedonale reale di OpenStreetMap (servizio OSRM di routing.openstreetmap.de), a un passo di circa 4,5 km/h, senza contare semafori e soste. I minuti in metro sono indicativi. Per il tempo aggiornato usa il pulsante «Percorso».</p>
+    </section>
+    <section>
+      <h2>Luce</h2>
+      <p>Il sole tramonta tra le 16:38 (15 novembre) e le 16:35 (19 novembre). Ogni giorno ha un posto sul fiume per vederlo: arriva entro le 16:00.</p>
+    </section>
+    <section>
+      <h2>Uso senza rete</h2>
+      <p id="offline">Apri la guida una volta con il Wi-Fi: salva sul telefono itinerario e foto.</p>
+      <p>La mappa dettagliata (OpenStreetMap) si salva solo per le zone che visualizzi con la rete: prima di partire, con il Wi-Fi, apri ogni giorno e ingrandisci un po' la mappa lungo il percorso. Per la navigazione senza rete puoi anche scaricare New York come mappa offline in Google Maps.</p>
+      <p>Per averla come app su iPhone: in Safari tocca Condividi, poi «Aggiungi alla schermata Home».</p>
+    </section>
+    <p class="proto">Dati aggiornati all'8 novembre 2026. Orari di negozi e ristoranti da ricontrollare il giorno stesso.</p>
+  </div>
+</div>
+
+<button type="button" id="update" class="update" hidden>Nuova versione disponibile: tocca per aggiornare</button>
+
+<script src="leaflet.js"></script>
+<script src="data.js"></script>
+<script src="boro.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
