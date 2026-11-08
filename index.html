@@ -19,6 +19,8 @@
 <style>
 @font-face{font-family:"Archivo";font-style:normal;font-display:swap;font-weight:100 900;font-stretch:62% 125%;src:url(archivo.woff2) format("woff2")}
 html{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+html,body{overflow-x:clip;max-width:100%}
+body{touch-action:pan-y pinch-zoom}
 body{margin:0}
 img{max-width:100%}
 [hidden]{display:none!important}
@@ -153,6 +155,10 @@ summary::-webkit-details-marker{display:none}
 .proto{font-size:var(--fs-xs);color:var(--muted)}
 @media (prefers-reduced-motion: reduce){*{transition:none!important;animation:none!important}}
 
+.facts{margin:8px 0 0;padding:0 0 0 18px;font-size:14px;line-height:1.45}
+.facts li{margin:0 0 5px}
+.facts li::marker{color:var(--day)}
+
 /* Versione definitiva */
 .locate{width:36px;height:36px;border-radius:4px;border:2px solid rgba(0,0,0,.2);background:var(--surface);color:var(--ink);display:grid;place-items:center;cursor:pointer;padding:0}
 .locate svg{width:20px;height:20px}
@@ -244,7 +250,7 @@ main > .wrap:last-child{padding-bottom:48px}
     </section>
     <section>
       <h2>Fonti</h2>
-      <p>Ogni scheda indica le sue fonti: CTBUH Skyscraper Center per altezze e piani, le pagine di progetto di architetti e ingegneri, i rapporti della NYC Landmarks Preservation Commission e i siti ufficiali di parchi e musei. Architetti e ingegneri sono confrontati anche con il tuo database Notion. Le tappe senza fonti hanno solo indicazioni pratiche. Le foto vengono da Wikimedia Commons: autore e licenza sono sotto ogni immagine. Tramonti: <a href="https://www.calendar-365.com/calendar/2026/November.html" target="_blank" rel="noopener">Calendar-365</a>.</p>
+      <p>Ogni scheda indica le sue fonti: CTBUH Skyscraper Center per altezze e piani, le pagine di progetto di architetti e ingegneri, i rapporti della NYC Landmarks Preservation Commission e i siti ufficiali di parchi e musei. Le tappe senza fonti hanno solo indicazioni pratiche. Le foto vengono da Wikimedia Commons: autore e licenza sono sotto ogni immagine. Tramonti: <a href="https://www.calendar-365.com/calendar/2026/November.html" target="_blank" rel="noopener">Calendar-365</a>.</p>
     </section>
     <section>
       <h2>Tempi a piedi</h2>

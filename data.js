@@ -78,7 +78,13 @@ const DAYS = [
      "p": "https://commons.wikimedia.org/wiki/File:56_Leonard_Street_(24249).jpg",
      "a": "Rhododendrites",
      "l": "CC BY-SA 4.0"
-    }
+    },
+    "facts": [
+     "Gli sbalzi vanno da 10 a 25 piedi (3–7,6 m): fino a 15 piedi basta lo spessore della soletta, oltre servono travi aggiuntive; i più grandi usano una travatura Vierendeel alta due piani.",
+     "Il nucleo è collegato alle colonne di facciata da outrigger ai piani tecnici 32 e 46. In cima, uno smorzatore a liquido con 130.000 litri d'acqua riduce le oscillazioni dovute al vento.",
+     "Negli appartamenti non ci sono setti portanti: molti carichi scendono attraverso «walking columns» che cambiano posizione da un piano all'altro.",
+     "Secondo gli architetti solo cinque appartamenti si ripetono. Dalla strada si leggono le solette di calcestruzzo a vista, una per ogni piano."
+    ]
    },
    {
     "id": "wtc1",
@@ -114,7 +120,10 @@ const DAYS = [
      "p": "https://commons.wikimedia.org/wiki/File:One_World_Trade_Center_(June_5,_2014).jpg",
      "a": "GLady",
      "l": "CC0"
-    }
+    },
+    "facts": [
+     "SOM l'ha inaugurata il 3 novembre 2014, dopo più di 13 anni di lavoro, e la descrive come torre per uffici di 104 piani; il CTBUH ne conta 94."
+    ]
    },
    {
     "id": "oculus",
@@ -143,7 +152,12 @@ const DAYS = [
      "p": "https://commons.wikimedia.org/wiki/File:Oculus_World_Trade_Center_-_August_18_2016.jpg",
      "a": "Anthony Quintano",
      "l": "CC BY 2.0"
-    }
+    },
+    "facts": [
+     "Collega le linee della metro 1, A, C ed R e i treni PATH per Hoboken e Newark; i quattro binari PATH sono a circa 60 piedi (18 m) sotto la strada.",
+     "Senza uscire all'aperto si raggiungono Brookfield Place, le torri 1, 2, 3 e 4 del World Trade Center e il Fulton Street Transit Center.",
+     "I due archi della sala sono lunghi 350 piedi (107 m) ciascuno. Il progetto fu presentato nel gennaio 2004."
+    ]
    },
    {
     "id": "trinity",
@@ -156,12 +170,17 @@ const DAYS = [
     "arch": "Richard Upjohn",
     "year": "1846",
     "desc": "Considerata uno dei primi e migliori esempi di architettura neogotica. È stato l'edificio più alto di New York fino al 1890. Nel cimitero ci sono le tombe di Alexander ed Eliza Hamilton.",
-    "tip": "Chiesa aperta tutti i giorni 8:30-18. Dal 1° novembre il cimitero chiude alle 16.",
+    "tip": "Secondo il sito: chiesa aperta tutti i giorni 8:30-16, cimitero 8:30-18. All'ingresso c'è un controllo di sicurezza.",
     "src": [
      [
       "Trinity Church NYC",
       "https://trinitychurchnyc.org/visit-history/places/trinity-church"
      ]
+    ],
+    "facts": [
+     "È la terza chiesa sul sito: la prima (1698) bruciò nel grande incendio del 1776, la seconda (1790) rimase in piedi fino al crollo del tetto nel 1839. Upjohn, chiamato a ripararla, decise di ricostruirla da capo.",
+     "La guglia è alta 281 piedi (86 m): fu l'edificio più alto degli Stati Uniti per 23 anni.",
+     "Nel cimitero il Soldiers' Monument ricorda i soldati della Guerra d'indipendenza che si ritiene siano sepolti qui."
     ]
    },
    {
@@ -240,10 +259,6 @@ const DAYS = [
       "https://www.skyscrapercenter.com/building/eight-spruce-street/699"
      ],
      [
-      "Il tuo Notion (USA Projects)",
-      "https://app.notion.com/p/a3cf2e62d17d82c0994381a204b9e2d6"
-     ],
-     [
       "WSP",
       "https://www.wsp.com/en-gl/projects/8-spruce-street"
      ]
@@ -253,7 +268,12 @@ const DAYS = [
      "p": "https://commons.wikimedia.org/wiki/File:8_Spruce_Street_2015.jpg",
      "a": "Choinowski",
      "l": "CC BY-SA 4.0"
-    }
+    },
+    "facts": [
+     "Sette lati hanno pannelli in acciaio inossidabile ondulati, il lato sud è piatto. I pannelli della facciata sono di tre tipi: piatti, poco sagomati e molto sagomati.",
+     "Ogni appartamento sui lati ondulati ha una pianta diversa, dai monolocali di 41 m² ai trilocali di 158 m². I bow-window permettono di «uscire nello spazio» oltre il filo della facciata.",
+     "Il basamento in mattoni di cinque piani riprende la scala degli edifici vicini; piazze con giochi d'acqua e sedute occupano circa il 30% del lotto."
+    ]
    },
    {
     "id": "bbridge",
@@ -277,6 +297,12 @@ const DAYS = [
       "NYC DOT",
       "https://www.nyc.gov/html/dot/html/infrastructure/brooklyn-bridge.shtml"
      ]
+    ],
+    "facts": [
+     "Ognuno dei quattro cavi principali è fatto di 5.434 fili d'acciaio continui, per un diametro di 15¾ pollici (40 cm). I cavi sono ancorati a blocchi in muratura da 60.000 tonnellate.",
+     "Le fondazioni scendono a 78,5 piedi (24 m) sul lato di Manhattan e a 44,5 piedi (13,5 m) a Brooklyn, dove si raggiunse la roccia. Ogni cassone misurava 102 × 172 piedi (31 × 52 m).",
+     "John A. Roebling morì di tetano nel luglio 1869, dopo che un piede gli era stato schiacciato durante i rilievi. Il giorno dell'apertura, il 24 maggio 1883, lo attraversarono circa 150.000 persone.",
+     "Oggi lo usano in media più di 100.000 veicoli, 4.000 ciclisti e 10.000 pedoni al giorno. Dal 1972 è un National Historic Civil Engineering Landmark."
     ]
    },
    {
@@ -310,6 +336,12 @@ const DAYS = [
       "Calendar-365, tramonti NY nov. 2026",
       "https://www.calendar-365.com/calendar/2026/November.html"
      ]
+    ],
+    "facts": [
+     "Il molo poggia su un terrapieno e non su pali, per questo può avere colline: il punto più alto, 20 piedi (6 m), è il più alto del parco.",
+     "Ha tre prati (Harbor View Lawn, Bridge View Lawn e The Vale), più di 500 alberi e una salt marsh sul lato sud.",
+     "Una cisterna da oltre 100.000 galloni raccoglie l'acqua piovana e copre il 70% dell'irrigazione del parco. Fu la prima parte del parco ad aprire, a marzo 2010.",
+     "Dal 2025 c'è un padiglione con bagni, fontanelle, posti a sedere all'ombra e un chiosco aperto tutto l'anno."
     ]
    },
    {
@@ -397,7 +429,12 @@ const DAYS = [
      "p": "https://commons.wikimedia.org/wiki/File:The_Spiral_Sep_2021.jpg",
      "a": "King of Hearts",
      "l": "CC BY-SA 4.0"
-    }
+    },
+    "facts": [
+     "Le terrazze girano intorno all'edificio e ogni piano ha accesso all'esterno; le piante sono scelte in base a luce, vento e temperatura di ciascun livello.",
+     "Una serie di spazi a doppia altezza può collegare piani diversi della stessa azienda.",
+     "Superficie: circa 2,8 milioni di piedi quadrati (260.000 m²). Nel 2023 ha ricevuto il CTBUH Award of Excellence."
+    ]
    },
    {
     "id": "vessel",
@@ -428,7 +465,12 @@ const DAYS = [
      "p": "https://commons.wikimedia.org/wiki/File:Hudson_Yards_Plaza_March_2019_53.jpg",
      "a": "Epicgenius",
      "l": "CC BY-SA 4.0"
-    }
+    },
+    "facts": [
+     "Heatherwick si è ispirato ai pozzi a gradini (stepwell) del Rajasthan, in India.",
+     "È pensato come una struttura su cui arrampicarsi, che solleva le persone sopra la nuova piazza con vista sul fiume Hudson e su Manhattan.",
+     "Hudson Yards è un nuovo quartiere di 11 ettari costruito sopra un deposito ferroviario."
+    ]
    },
    {
     "id": "shed",
@@ -458,7 +500,12 @@ const DAYS = [
      "p": "https://commons.wikimedia.org/wiki/File:The_Shed_-_Complete_(48206488176).jpg",
      "a": "Ajay Suresh",
      "l": "CC BY 2.0"
-    }
+    },
+    "facts": [
+     "Il guscio mobile pesa circa 4.000 tonnellate, è alto 120 piedi (37 m) e scorre per 114 piedi (35 m) su due rotaie d'acciaio larghe 10 pollici: la trasformazione dura cinque minuti.",
+     "Si muove su sei carrelli con 16 ruote d'acciaio alte sei piedi (1,8 m), spinte da sei motori da 15 cavalli.",
+     "Il guscio è chiuso da cuscini in ETFE. Per una struttura del genere le norme esistenti non bastavano: analisi termiche sui carrelli hanno evitato protezioni antincendio aggiuntive. Costo dell'edificio: 275 milioni di dollari."
+    ]
    },
    {
     "id": "highline1",
@@ -477,6 +524,12 @@ const DAYS = [
       "The High Line",
       "https://www.thehighline.org/history/"
      ]
+    ],
+    "facts": [
+     "Prima della ferrovia sopraelevata i treni merci passavano in strada: la 10th Avenue era chiamata «Death Avenue» e nel 1910 i treni avevano già ucciso più di 540 persone.",
+     "La linea trasportava carne, latticini e prodotti agricoli per Lower Manhattan.",
+     "Finito il traffico ferroviario, il sindaco Giuliani ne firmò la demolizione; nel 1999 Joshua David e Robert Hammond fondarono Friends of the High Line per salvarla.",
+     "Oggi ospita più di 500 specie di piante e alberi; dal 2023 c'è anche un collegamento con Moynihan Train Hall."
     ]
    },
    {
@@ -521,10 +574,6 @@ const DAYS = [
      [
       "Renzo Piano Building Workshop",
       "https://www.rpbw.com/project/the-whitney-museum-of-american-art-at-gansevoort"
-     ],
-     [
-      "Il tuo Notion (USA Projects)",
-      "https://app.notion.com/p/a3cf2e62d17d82c0994381a204b9e2d6"
      ]
     ],
     "photo": {
@@ -532,7 +581,12 @@ const DAYS = [
      "p": "https://commons.wikimedia.org/wiki/File:Whitney_Museum_of_American_Art_(49051573133).jpg",
      "a": "Ajay Suresh",
      "l": "CC BY 2.0"
-    }
+    },
+    "facts": [
+     "Al terzo piano un teatro da 170 posti ha una vetrata a doppia altezza sull'Hudson.",
+     "L'atrio d'ingresso è anche una galleria a ingresso libero. All'ultimo piano galleria e caffè sono illuminati da lucernari a dente di sega.",
+     "La galleria del quinto piano è descritta come la più grande sala museale a pianta libera di New York. La collezione conta oltre 19.000 opere."
+    ]
    },
    {
     "id": "washsq",
@@ -551,6 +605,12 @@ const DAYS = [
       "NYC Parks",
       "https://www.nycgovparks.org/parks/washington-square-park/history"
      ]
+    ],
+    "facts": [
+     "Dal 1797 l'area fu una fossa comune e luogo di esecuzioni; nel 1826 divenne piazza d'armi e nel 1827 parco pubblico.",
+     "Nel 1835 Samuel Morse vi fece la prima dimostrazione pubblica del telegrafo.",
+     "La Fifth Avenue passava sotto l'arco fino al 1964, quando il parco fu chiuso al traffico su richiesta dei residenti del Village.",
+     "Le case neoclassiche sul lato nord ispirarono il romanzo «Washington Square» di Henry James (1880)."
     ]
    },
    {
@@ -596,7 +656,12 @@ const DAYS = [
      "p": "https://commons.wikimedia.org/wiki/File:Little_Island_at_Pier_55.jpg",
      "a": "Praneeth Thalla",
      "l": "CC BY-SA 4.0"
-    }
+    },
+    "facts": [
+     "L'idea nasce dai vecchi pali di legno dei moli che spuntano ancora dall'Hudson.",
+     "I lavori sono durati tre anni, a fasi, per limitare i danni alla vita marina.",
+     "Oltre all'anfiteatro da 687 posti c'è uno spazio da 200; i servizi sono nascosti sotto il parco."
+    ]
    },
    {
     "id": "minetta",
@@ -709,6 +774,11 @@ const DAYS = [
       "Central Park Conservancy, Bethesda Fountain",
       "https://www.centralparknyc.org/locations/bethesda-fountain"
      ]
+    ],
+    "facts": [
+     "Sui pilastri d'ingresso dal Mall è scolpito il Tempo: il gallo del giorno a est, il gufo e il pipistrello della notte a ovest. Sulle rampe sono rappresentate le quattro stagioni.",
+     "L'arcata era pensata come una sala di ricevimento all'aperto, per ripararsi da pioggia e caldo. È l'unico soffitto noto con piastrelle Minton, usate di solito per i pavimenti.",
+     "Dall'arcata si vede il Lake con le barche a remi e, più lontano, il Ramble."
     ]
    },
    {
@@ -741,7 +811,12 @@ const DAYS = [
      "p": "https://commons.wikimedia.org/wiki/File:05_23_2022_Supertall_Building_111_West_57th_Street_from_Roof_NYC.jpg",
      "a": "Wil540 art",
      "l": "CC BY-SA 4.0"
-    }
+    },
+    "facts": [
+     "Steinway Hall fu disegnata per Warren & Wetmore da Walter L. Hopkins; la facciata sulla 57th Street è in calcare dell'Indiana.",
+     "All'interno c'è una rotonda ottagonale a doppia altezza (circa 35 piedi, 11 m) con archi in marmo bianco e lesene in marmo verde, tutelata come interno dal 2013.",
+     "Dall'apertura è stata l'unico punto vendita di pianoforti Steinway a New York. L'azienda fu fondata in città nel 1853."
+    ]
    },
    {
     "id": "53w53",
@@ -764,10 +839,6 @@ const DAYS = [
       "https://www.skyscrapercenter.com/building/53-west-53/317"
      ],
      [
-      "Il tuo Notion (USA Projects)",
-      "https://app.notion.com/p/a3cf2e62d17d82c0994381a204b9e2d6"
-     ],
-     [
       "WSP",
       "https://www.wsp.com/en-gb/projects/53w53"
      ]
@@ -777,7 +848,12 @@ const DAYS = [
      "p": "https://commons.wikimedia.org/wiki/File:53W53_from_Weehawken_September_2021_001.jpg",
      "a": "King of Hearts",
      "l": "CC BY-SA 4.0"
-    }
+    },
+    "facts": [
+     "Il progetto iniziale era in acciaio, ma lo spessore dei solai avrebbe ridotto il numero di piani. WSP ne ha sviluppato una versione in calcestruzzo: il primo diagrid di queste dimensioni e complessità realizzato così.",
+     "Nei nodi del diagrid dovevano incrociarsi le armature di sette-otto elementi: è stato costruito un modello di prova delle armature per verificarlo.",
+     "Ognuno dei 139 appartamenti ha una geometria diversa, dettata dalle diagonali. Ai piani bassi ci sono circa 50.000 piedi quadrati (4.600 m²) di nuove gallerie del MoMA."
+    ]
    },
    {
     "id": "rockefeller",
@@ -799,6 +875,10 @@ const DAYS = [
       "NYC LPC, Radio City Music Hall, LP-0995",
       "https://s-media.nyc.gov/agencies/lpc/lp/0995.pdf"
      ]
+    ],
+    "facts": [
+     "Il terreno fu preso in affitto nell'ottobre 1928.",
+     "La tradizione dell'albero di Natale iniziò nel dicembre 1931 con un abete di 20 piedi (6 m) e divenne annuale nel 1933."
     ]
    },
    {
@@ -853,7 +933,12 @@ const DAYS = [
      "p": "https://commons.wikimedia.org/wiki/File:432_Park_Avenue,_NY_(cropped)2.jpg",
      "a": "Percival Kestreltail",
      "l": "CC BY-SA 4.0"
-    }
+    },
+    "facts": [
+     "Il progetto parte dalla geometria del quadrato e dalla griglia di Manhattan. Ogni piano misura circa 812 m² e ospita da uno a quattro appartamenti.",
+     "Gli interni sono senza pilastri, con soffitti alti 3,8 m.",
+     "La parte bassa è riservata ai servizi dei residenti: ristorante, piscina, palestra, cantine e garage interrato."
+    ]
    },
    {
     "id": "270park",
@@ -885,7 +970,12 @@ const DAYS = [
      "p": "https://commons.wikimedia.org/wiki/File:270_Park_Avenue_2025.jpg",
      "a": "Kidfly182",
      "l": "CC BY 4.0"
-    }
+    },
+    "facts": [
+     "Ha 2,5 milioni di piedi quadrati (circa 230.000 m²) di uffici flessibili.",
+     "Grazie alla torre sollevata, al livello della strada c'è 2,5 volte più spazio aperto su Park e Madison Avenue rispetto all'edificio precedente.",
+     "Il 97% dei materiali della demolizione è stato riciclato o riutilizzato. La torre ha tripli vetri e illuminazione circadiana."
+    ]
    },
    {
     "id": "vanderbilt",
@@ -921,7 +1011,12 @@ const DAYS = [
      "p": "https://commons.wikimedia.org/wiki/File:One_Vanderbilt_April_2023.jpg",
      "a": "Percival Kestreltail",
      "l": "CC BY-SA 4.0"
-    }
+    },
+    "facts": [
+     "Wilgus sovradimensionò le colonne della Main Concourse di Grand Central per sostenere un giorno una torre sopra la stazione.",
+     "Il progetto rientra nel rezoning di East Midtown, avviato dal sindaco Bloomberg, che aumenta densità e diritti aerei vicino a Grand Central.",
+     "Le opere pubbliche comprendono la piazza pedonale su Vanderbilt Avenue, ingressi, corridoi e scale della metro migliorati e più luce naturale."
+    ]
    },
    {
     "id": "gct",
@@ -948,6 +1043,12 @@ const DAYS = [
       "MTA",
       "https://away.mta.info/articles/grand-central-terminal-tour-secrets-fun-facts-history/"
      ]
+    ],
+    "facts": [
+     "Aprì alle 0:01 di domenica 2 febbraio 1913: il primo giorno arrivarono più di 150.000 visitatori.",
+     "Nel 1968 Penn Central propose una torre di 55 piani di Marcel Breuer sopra la stazione; tra i cittadini che si opposero c'era Jacqueline Kennedy Onassis.",
+     "Nel chiosco informazioni al centro c'è una scala a chiocciola nascosta. Ghiande e foglie di quercia, simbolo dei Vanderbilt, sono scolpite in tutto l'edificio.",
+     "L'orologio Tiffany in facciata (1914), alto circa 14 piedi (4,3 m), era il più grande del mondo. Le lampadine a vista ricordano che fu uno dei primi edifici interamente elettrici."
     ]
    },
    {
@@ -979,6 +1080,12 @@ const DAYS = [
       "NYC LPC, LP-0996",
       "https://s-media.nyc.gov/agencies/lpc/lp/0996.pdf"
      ]
+    ],
+    "facts": [
+     "Nacque come Reynolds Building, previsto di 67 piani con una cupola di vetro; Walter P. Chrysler rilevò il progetto nell'ottobre 1928.",
+     "La guglia fu assemblata in segreto al 65° piano e sollevata con una gru da 20 tonnellate per superare 40 Wall Street, che aveva aggiunto un pennone per arrivare a 927 piedi.",
+     "L'acciaio Nirosta fu prodotto per la prima volta negli Stati Uniti apposta per questo edificio, su formula tedesca della Krupp. I pavimenti dell'atrio sono in travertino giallo di Siena.",
+     "Chrysler pretese ascensori da 1.000 piedi al minuto (5 m/s), quando le norme del 1930 ne consentivano 700."
     ]
    },
    {
@@ -1004,6 +1111,11 @@ const DAYS = [
       "Calendar-365, tramonti NY nov. 2026",
       "https://www.calendar-365.com/calendar/2026/November.html"
      ]
+    ],
+    "facts": [
+     "Ci sono una spiaggia urbana, un giardino lungo i binari, aree per cani e per i giochi, e un caffè sotto un padiglione con pensilina in acciaio piegato che inquadra l'Empire State Building.",
+     "Una passerella sinuosa protegge circa 1,5 acri (0,6 ha) di nuove zone umide; un ponte pedonale porta a un'isola.",
+     "Duecento anni fa il sito era una palude, poi divenne industriale."
     ]
    },
    {
@@ -1119,7 +1231,12 @@ const DAYS = [
      "p": "https://commons.wikimedia.org/wiki/File:Hearst_Tower_(August_2024).jpg",
      "a": "Dreamword",
      "l": "CC BY 4.0"
-    }
+    },
+    "facts": [
+     "Le sculture sono di Henry Kreis: sei gruppi di dodici figure (Commedia e Tragedia, Musica e Arte, Sport e Industria, Stampa e Scienze) addossati ad alte colonne scanalate.",
+     "Il basamento di sei piani è in pietra calcarea ricostruita; lo stile mescola Art Déco, Secessione e teatralità barocca.",
+     "Hearst puntava sullo sviluppo del quartiere dei teatri verso Columbus Circle. Un rialzo di nove piani, proposto nel 1945-47, non fu mai costruito."
+    ]
    },
    {
     "id": "via57",
@@ -1145,7 +1262,10 @@ const DAYS = [
      "p": "https://commons.wikimedia.org/wiki/File:VIA_57_West_-_exterior.jpg",
      "a": "Razvan Dinu",
      "l": "CC BY-SA 4.0"
-    }
+    },
+    "facts": [
+     "Superficie: circa 831.000 piedi quadrati (77.200 m²)."
+    ]
    },
    {
     "id": "nyt",
@@ -1179,7 +1299,12 @@ const DAYS = [
      "p": "https://commons.wikimedia.org/wiki/File:New_york_times_building.jpg",
      "a": "Defears",
      "l": "CC BY-SA 4.0"
-    }
+    },
+    "facts": [
+     "La seconda pelle è fatta di 175.000 bastoncini di ceramica bianca su un telaio d'acciaio, più radi salendo: bloccano fino al 50% della radiazione solare e cambiano colore con la luce.",
+     "La lobby è un passaggio pubblico tra la 40th e la 41st Street. L'auditorium da 378 posti ha come fondale il giardino.",
+     "La torre di 52 piani poggia su un basamento di quattro ed è coronata da un'antenna di 79 m."
+    ]
    },
    {
     "id": "moynihan",
@@ -1208,7 +1333,12 @@ const DAYS = [
      "p": "https://commons.wikimedia.org/wiki/File:Moynihan_Train_Hall_interior,_Dec_27_2022_(cropped).jpg",
      "a": "D. Benjamin Miller",
      "l": "CC0"
-    }
+    },
+    "facts": [
+     "La sala serve i treni LIRR e Amtrak e dà accesso diretto a 17 binari di Penn Station; sono state aggiunte 11 scale mobili e 15 ascensori.",
+     "Agli ingressi ci sono opere commissionate con il Public Art Fund: Elmgreen & Dragset sulla 31st Street e Kehinde Wiley sulla 33rd.",
+     "Ai piani superiori ci sono circa 730.000 piedi quadrati (68.000 m²) di uffici, tra cui Meta, Amtrak e LIRR."
+    ]
    },
    {
     "id": "newmuseum",
@@ -1244,7 +1374,12 @@ const DAYS = [
      "p": "https://commons.wikimedia.org/wiki/File:New_Museum_in_New_York_City_2015.JPG",
      "a": "MusikAnimal",
      "l": "CC BY-SA 4.0"
-    }
+    },
+    "facts": [
+     "Al piano terra ci sono un atrio più grande, la libreria e un ristorante con ingresso da Freeman Alley; ai piani alti uno studio per artisti in residenza, la sede di NEW INC e un Forum da 74 posti.",
+     "Le opere commissionate sono di Tschabalala Self in facciata, Klára Hosnedlová lungo la scala dell'atrio e Sarah Lucas nella piazza d'ingresso.",
+     "Lo spazio espositivo è raddoppiato e ci sono tre nuovi ascensori."
+    ]
    },
    {
     "id": "katz",
@@ -1280,6 +1415,11 @@ const DAYS = [
       "NYC DOT",
       "https://www.nyc.gov/html/dot/html/infrastructure/williamsburg-bridge.shtml"
      ]
+    ],
+    "facts": [
+     "Le torri sono alte 310 piedi (94 m). Sul ponte passano anche i binari delle linee J, M e Z.",
+     "Nel 2024 lo usavano in media 87.987 veicoli, 8.645 ciclisti e 4.440 pedoni al giorno.",
+     "Tra il 1991 e il 2012 sono stati rifatti cavi, carreggiate e torri, con lavori per oltre un miliardo di dollari."
     ]
    },
    {
@@ -1299,6 +1439,10 @@ const DAYS = [
       "Field Operations",
       "https://www.fieldoperations.net/project-details/project/domino-park.html"
      ]
+    ],
+    "facts": [
+     "Ha ricollegato Williamsburg all'East River per la prima volta in 160 anni; dall'apertura, nel giugno 2018, ha avuto più di 4 milioni di visitatori.",
+     "Gli oggetti recuperati dalla raffineria sono più di 30; c'è anche un campo da beach volley."
     ]
    },
    {
@@ -1441,6 +1585,11 @@ const DAYS = [
       "Storefront, info visita",
       "https://storefrontnews.org/?p=375"
      ]
+    ],
+    "facts": [
+     "La galleria è dove si incontrano Chinatown, Little Italy e SoHo: un cuneo stretto con un interno triangolare.",
+     "È una delle poche gallerie di New York dedicate ai giovani architetti. L'allora direttore Kyong Park riassunse il progetto con «No wall, no barrier, no inside, no outside».",
+     "Holl e Acconci ricevettero l'incarico nel 1992."
     ]
    },
    {
